@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Solr managed schema - automatically generated - DO NOT EDIT -->
+<schema name="Sample POC schema" version="1.5">
+    <uniqueKey>id</uniqueKey>
+    <fieldType name="string" class="solr.StrField" indexed="true" stored="true" required="true"/>
+    <field name="id" type="string"/>
+    <field name="segments" type="segment"/>
+    <field name="title" type="string"/>
+
+    <fieldType name="segment" class="solr.TextField" stored="false" omitNorms="true" >
+        <analyzer type="query">
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+        </analyzer>
+    </fieldType>
+</schema>
