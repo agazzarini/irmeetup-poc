@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Solr managed schema - automatically generated - DO NOT EDIT -->
+<schema name="Sample POC schema" version="1.5">
+    <uniqueKey>id</uniqueKey>
+    <fieldType name="string" class="solr.StrField" indexed="true" stored="true" required="true"/>
+    <field name="id" type="string"/>
+    <field name="segments" type="segment"/>
+    <field name="segments_2" type="shingle_2"/>
+    <field name="segments_3" type="shingle_3"/>
+    <field name="segments_4" type="shingle_4"/>
+    <field name="segments_5" type="shingle_5"/>
+    <copyField source="segments" dest="segments_2" />
+    <copyField source="segments" dest="segments_3" />
+    <copyField source="segments" dest="segments_4" />
+    <copyField source="segments" dest="segments_5" />
+
+    <field name="title" type="string"/>
+
+    <fieldType name="segment" class="solr.TextField" stored="false" omitNorms="true" >
+        <analyzer type="query">
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+        </analyzer>
+    </fieldType>
+
+    <fieldType name="shingle_2" class="solr.TextField" stored="false" omitNorms="true" >
+        <analyzer type="query">
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+            <filter class="solr.ShingleFilterFactory" minShingleSize="2" maxShingleSize="2" outputUnigrams="false" outputUnigramsIfNoShingles="false" tokenSeparator="_"/>
+        </analyzer>
+    </fieldType>
+
+    <fieldType name="shingle_3" class="solr.TextField" stored="false" omitNorms="true" >
+        <analyzer type="query">
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+            <filter class="solr.ShingleFilterFactory" minShingleSize="3" maxShingleSize="3" outputUnigrams="false" outputUnigramsIfNoShingles="false" tokenSeparator="_"/>
+        </analyzer>
+    </fieldType>
+
+    <fieldType name="shingle_4" class="solr.TextField" stored="false" omitNorms="true" >
+        <analyzer type="query">
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+            <filter class="solr.ShingleFilterFactory" minShingleSize="4" maxShingleSize="4" outputUnigrams="false" outputUnigramsIfNoShingles="false" tokenSeparator="_"/>
+        </analyzer>
+    </fieldType>
+
+    <fieldType name="shingle_5" class="solr.TextField" stored="false" omitNorms="true" >
+        <analyzer type="query">
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+            <filter class="solr.ShingleFilterFactory" minShingleSize="5" maxShingleSize="5" outputUnigrams="false" outputUnigramsIfNoShingles="false" tokenSeparator="_"/>
+        </analyzer>
+    </fieldType>
+
+
+</schema>
