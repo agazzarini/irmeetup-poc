@@ -48,6 +48,7 @@
                     <ratings-folder>src/etc/ratings</ratings-folder>
                     <templates-folder>src/etc/templates</templates-folder>
                     <fields>*,score</fields>
+                    <include>v1.0,v1.2,v1.3,v1.5</include>
                     <metrics>
                         <param>io.sease.rre.core.domain.metrics.impl.PrecisionAtOne</param>
                         <param>io.sease.rre.core.domain.metrics.impl.PrecisionAtTwo</param>
